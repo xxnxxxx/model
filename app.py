@@ -16,7 +16,7 @@ model_files = load_files_by_keyword(model_directory, "Model")
 st.markdown(
     """
     <div style="background-color:#1F4529;padding:10px;border-radius:10px;text-align:center">
-        <h2 style="color:white;font-family:sans-serif;font-size:24px;">Aplikasi Prediksi Sentimen Mobil Hybrid</h2>
+        <h2 style="color:white;font-family:sans-serif;font-size:24px;">Aplikasi web prediksi sentimen analisis mobil hybrid di Indonesia menggunakan metode SVM</h2>
         <p style="color:white;font-size:16px;">Pilih model dan masukkan teks untuk prediksi</p>
     </div>
     """,
