@@ -12,12 +12,12 @@ model_directory = "."
 # Memuat daftar model
 model_files = load_files_by_keyword(model_directory, "Model")
 
-# Header aplikasi
+# Header aplikasi dengan responsivitas
 st.markdown(
     """
     <div style="background-color:#1F4529;padding:10px;border-radius:10px;text-align:center">
-        <h2 style="color:white;font-family:sans-serif;">Aplikasi web prediksi sentimen analisis mobil hybrid di Indonesia menggunakan metode SVM</h2>
-        <p style="color:white;">Pilih model dan masukkan teks untuk prediksi</p>
+        <h2 style="color:white;font-family:sans-serif;font-size:24px;">Aplikasi Prediksi Sentimen Mobil Hybrid</h2>
+        <p style="color:white;font-size:16px;">Pilih model dan masukkan teks untuk prediksi</p>
     </div>
     """,
     unsafe_allow_html=True
@@ -26,10 +26,15 @@ st.markdown(
 # Pilihan model
 selected_model = st.selectbox("Pilih model:", model_files)
 
-# Input teks
-input_text = st.text_area("Masukkan teks untuk prediksi", placeholder="Contoh: Mobil hybrid ramah lingkungan.")
+# Input teks dengan ukuran responsif
+input_text = st.text_area(
+    "Masukkan teks untuk prediksi",
+    placeholder="Contoh: Mobil hybrid ramah lingkungan.",
+    height=100,
+)
 
-# Tombol prediksi
+# Tombol prediksi dengan jarak antar elemen
+st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
 if st.button("Prediksi"):
     if input_text:
         try:
@@ -61,11 +66,11 @@ if st.button("Prediksi"):
             else:
                 color = "blue"
 
-            # Menampilkan hasil prediksi
+            # Menampilkan hasil prediksi dengan responsivitas
             st.markdown(
                 f"""
                 <div style="text-align:center;margin-top:20px;">
-                    <h2 style="color:{color};"> Prediksi Kategori: {prediction[0]} </h2>
+                    <h2 style="color:{color};font-size:22px;"> Prediksi Kategori: {prediction[0]} </h2>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -74,4 +79,3 @@ if st.button("Prediksi"):
             st.error(f"Terjadi kesalahan: {e}")
     else:
         st.warning("⚠️ Silakan masukkan teks untuk prediksi.")
-
